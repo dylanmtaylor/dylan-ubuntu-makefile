@@ -1,7 +1,7 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	all preparations libs update upgrade fonts atom python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation 
+.PHONY:	all preparations libs update upgrade fonts atom python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation steam libreoffice_full
 
 all:
 	@echo "Installation of ALL targets"
@@ -18,6 +18,8 @@ all:
 	make docker ansible virtualbox vagrant
 	make teamviewer
 	make xmind
+	make steam
+	make libreoffice_full
 
 preparations:
 	make update
@@ -61,7 +63,7 @@ graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras krita geeqie graphviz libav-tools jpegoptim mesa-utils shutter
 
 3dprint:
-	sudo apt -y install slic3r cura 
+	sudo apt -y install slic3r cura freecad
 
 darktable:
 	sudo apt -y install darktable
@@ -105,8 +107,16 @@ tools:
 	sudo apt -y install htop meld guake password-gorilla keepassx retext terminator vim geany ghex myrepos baobab byobu
 
 teamviewer:
-	sudo apt -y install qml-module-qtquick-dialogs qml-module-qtquick-privatewidgets
+	sudo apt -y install qmel-module-qtquick-dialogs qml-module-qtquick-privatewidgets
 	rm -f teamviewer_amd64.deb
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
 	rm -f teamviewer_amd64.deb
+
+steam:
+	sudo apt -y install python-apt
+	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+
+libreoffice_full:
+	sudo apt -y install libreoffice\*
+	
