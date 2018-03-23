@@ -9,6 +9,7 @@ all:
 	make upgrade
 	make fonts
 	make graphics darktable 
+	make 3dprint
 	make networking google_chrome dropbox httpie
 	make media pandoc
 	make presentation
