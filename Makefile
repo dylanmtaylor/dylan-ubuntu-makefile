@@ -139,7 +139,7 @@ libreoffice_full:
 	sudo apt -y install libreoffice
 	
 wine:
-	sudo apt -y install --install-recommends wine64
+	sudo apt -y install --install-recommends wine64 dosbox
  
 unity3d:
 	rm -f UnitySetup-2018.1.0b8
