@@ -109,7 +109,6 @@ tools:
 	sudo apt -y install htop meld guake keepassx retext vim geany ghex myrepos baobab byobu gnome-tweaks
 
 teamviewer:
-	sudo apt -y install qmel-module-qtquick-dialogs qml-module-qtquick-privatewidgets
 	rm -f teamviewer_amd64.deb
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
