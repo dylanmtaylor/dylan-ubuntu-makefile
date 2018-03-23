@@ -10,6 +10,7 @@ all:
 	make update
 	make upgrade
 	make fonts
+	make python
 	make atom
 	make graphics darktable 
 	make 3dprint
@@ -57,7 +58,7 @@ atom:
 
 python:
 	make preparations
-	sudo -H apt -y install python-pip
+	sudo -H apt -y install python-pip python-minimal
 	sudo -H pip install --upgrade pip
 
 ruby:
