@@ -1,6 +1,8 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
+.PHONY:	all preparations libs update upgrade fonts python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system harddisk docker ansible filesystem nodejs apache2 php7 mysql mysql-workbench postgres memcached mongodb tools encfs_manager nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation idea_intellij
+
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
@@ -78,7 +80,7 @@ media:
 	sudo apt -y install mplayer mplayer-gui vlc ubuntu-restricted-extras libavcodec-extra libdvdread4 blender totem okular okular-extra-backends
 	sudo apt -y install libxvidcore4 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-alsa gstreamer1.0-fluendo-mp3 gstreamer1.0-libav
 	# DVD Playback
-	sudo apt -y install libdvd-pkgsc
+	sudo apt -y install libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 
 pandoc:
