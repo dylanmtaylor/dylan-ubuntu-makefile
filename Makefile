@@ -62,7 +62,7 @@ darktable:
 	sudo apt -y install darktable
 
 networking:
-	sudo apt -y install pidgin filezilla vinagre remmina chromium-browser pepperflashplugin-nonfree bmon hexchat
+	sudo apt -y install pidgin filezilla vinagre remmina chromium-browser pepperflashplugin-nonfree hexchat
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
