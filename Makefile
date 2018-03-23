@@ -106,7 +106,7 @@ ansible:
 	sudo apt -y install ansible
 	
 filesystem:
-	sudo apt -y install cryptsetup exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
+	sudo apt -y install cryptsetup libblockdev-crypto2 exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
 
 tools:
 	sudo apt -y install htop meld guake keepassx retext vim geany ghex myrepos baobab byobu gnome-tweaks
