@@ -1,7 +1,7 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	all preparations libs update upgrade fonts atom python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools encfs_manager nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation 
+.PHONY:	all preparations libs update upgrade fonts atom python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation 
 
 all:
 	@echo "Installation of ALL targets"
@@ -14,7 +14,7 @@ all:
 	make networking google_chrome dropbox httpie
 	make media pandoc
 	make presentation
-	make archives system harddisk filesystem tools encfs_manager nautilus
+	make archives system filesystem tools nautilus
 	make docker ansible virtualbox vagrant
 	make teamviewer
 	make xmind
