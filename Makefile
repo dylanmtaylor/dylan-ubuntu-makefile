@@ -63,7 +63,7 @@ python:
 	sudo -H pip install --upgrade pip
 
 ruby:
-	sudo apt -y install ruby ruby-dev ruby-bundler
+	sudo apt -y install ruby ruby-dev ruby-bGundler
 	sudo gem install bundler
 
 graphics:
@@ -111,7 +111,7 @@ filesystem:
 	sudo apt -y install cryptsetup libblockdev-crypto2 exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
 
 tools:
-	sudo apt -y install htop meld guake keepassx retext vim geany ghex myrepos baobab byobu gnome-tweaks
+	sudo apt -y install htop meld guake keepassx retext vim geany glade ghex myrepos baobab byobu gnome-tweaks
 
 teamviewer:
 	rm -f teamviewer_amd64.deb
