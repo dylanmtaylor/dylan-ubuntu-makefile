@@ -126,6 +126,7 @@ unetbootin:
 steam:
 	sudo apt -y install python-apt
 	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+	sudo dpkg -i steam.deb
 
 libreoffice_full:
 	sudo apt -y install libreoffice
