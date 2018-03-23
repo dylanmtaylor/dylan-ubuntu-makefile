@@ -138,6 +138,6 @@ libreoffice_full:
 	sudo apt -y install libreoffice
 	
 wine:
-	sudo apt -y install --install-recommends winehq-devel
+	sudo apt -y install --install-recommends wine64
  
 	
