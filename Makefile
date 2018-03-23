@@ -86,7 +86,7 @@ pandoc:
 system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim-qt
 
-virtualbox: virtualbox
+virtualbox: 
 	sudo apt -y install VirtualBox\*
 
 ansible:
