@@ -146,4 +146,4 @@ unity3d:
 	wget https://beta.unity3d.com/download/ee2fb9f9da52/UnitySetup-2018.1.0b8
 	chmod +x UnitySetup-2018.1.0b8
 	sudo ./UnitySetup-2018.1.0b8 --unattended -l $$HOME/Unity3D
-	sudo chown -R $$USER:$$USER Unity-2018.1.0b8
+	sudo chown -R $$USER:$$USER $$HOME/Unity3D
