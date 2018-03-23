@@ -1,8 +1,6 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	all preparations libs update upgrade fonts python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system harddisk docker ansible filesystem nodejs apache2 php7 mysql mysql-workbench postgres memcached mongodb tools encfs_manager nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation idea_intellij
-
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
