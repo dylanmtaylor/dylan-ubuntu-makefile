@@ -59,7 +59,7 @@ atom:
 
 python:
 	make preparations
-	sudo -H apt -y install python-pip python-minimal python-gpgme
+	sudo -H apt -y install python-pip python-minimal
 	sudo -H pip install --upgrade pip
 
 ruby:
