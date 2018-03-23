@@ -6,6 +6,7 @@
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
+	make update
 	make upgrade
 	make fonts
 	make atom
@@ -20,6 +21,7 @@ all:
 	make xmind
 	make steam
 	make libreoffice_full
+	make unetbootin
 
 preparations:
 	make update
@@ -104,7 +106,7 @@ filesystem:
 	sudo apt -y install cryptsetup exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
 
 tools:
-	sudo apt -y install htop meld guake password-gorilla keepassx retext terminator vim geany ghex myrepos baobab byobu
+	sudo apt -y install htop meld guake keepassx retext vim geany ghex myrepos baobab byobu gnome-tweaks
 
 teamviewer:
 	sudo apt -y install qmel-module-qtquick-dialogs qml-module-qtquick-privatewidgets
@@ -112,6 +114,11 @@ teamviewer:
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
 	rm -f teamviewer_amd64.deb
+
+unetbootin:
+	sudo add-apt-repository ppa:gezakovacs/ppa
+	sudo apt-get update
+	sudo apt-get -y install unetbootin
 
 steam:
 	sudo apt -y install python-apt
