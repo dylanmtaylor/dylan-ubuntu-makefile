@@ -122,6 +122,7 @@ teamviewer:
 unetbootin:
 # workaround
 #	sudo add-apt-repository ppa:gezakovacs/ppa
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D45DF2E8FC91AE7E
 	echo "deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu artful main" | sudo tee /etc/apt/sources.list.d/gezakovacs-ubuntu-ppa-bionic.list
 	sudo apt-get update
 	sudo apt-get -y install unetbootin
