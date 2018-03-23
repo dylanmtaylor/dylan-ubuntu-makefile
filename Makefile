@@ -25,6 +25,7 @@ all:
 	make libreoffice_full
 	make unetbootin
 	make monodevelop
+	make wine
 
 preparations:
 	make update
@@ -135,4 +136,8 @@ steam:
 
 libreoffice_full:
 	sudo apt -y install libreoffice
+	
+wine:
+	sudo apt -y install --install-recommends winehq-devel
+ 
 	
