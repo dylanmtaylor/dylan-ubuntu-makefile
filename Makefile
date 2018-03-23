@@ -119,7 +119,8 @@ teamviewer:
 unetbootin:
 # workaround
 #	sudo add-apt-repository ppa:gezakovacs/ppa
-	echo "deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu artful main" | sudo tee /etc/apt/sources.list.d/gezakovacs-ubuntu-ppa-bionic.list	sudo apt-get update
+	echo "deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu artful main" | sudo tee /etc/apt/sources.list.d/gezakovacs-ubuntu-ppa-bionic.list
+	sudo apt-get update
 	sudo apt-get -y install unetbootin
 
 steam:
