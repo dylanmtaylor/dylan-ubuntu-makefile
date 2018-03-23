@@ -1,7 +1,7 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 
-.PHONY:	all preparations libs update upgrade fonts python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system harddisk docker ansible filesystem nodejs apache2 php7 mysql mysql-workbench postgres memcached mongodb tools encfs_manager nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation idea_intellij
+.PHONY:	all preparations libs update upgrade fonts python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools encfs_manager nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation 
 
 all:
 	@echo "Installation of ALL targets"
@@ -15,9 +15,6 @@ all:
 	make presentation
 	make archives system harddisk filesystem tools encfs_manager nautilus
 	make docker ansible virtualbox vagrant
-	make nodejs
-	make apache2 php7 mysql mysql-workbench memcached mongodb 
-	make postgres
 	make teamviewer
 	make xmind
 
@@ -88,8 +85,6 @@ pandoc:
 
 system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui 
-harddisk:
-	sudo apt -y install smartmontools gsmartcontrol smart-notifier
 
 virtualbox: virtualbox
 	sudo apt -y install VirtualBox\*
