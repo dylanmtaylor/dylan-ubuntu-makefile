@@ -64,7 +64,7 @@ ruby:
 	sudo gem install bundler
 
 graphics:
-	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras krita geeqie graphviz libav-tools jpegoptim mesa-utils shutter
+	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras krita graphviz libav-tools jpegoptim mesa-utils shutter
 
 3dprint:
 	sudo apt -y install slic3r cura freecad
