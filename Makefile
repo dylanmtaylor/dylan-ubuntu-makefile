@@ -49,6 +49,7 @@ fonts:
 	fc-cache -v
 
 atom:
+	sudo apt -y install gconf-service gconf2
 	rm -f atom-amd64.deb
 	wget https://atom.io/download/deb -O atom-amd64.deb
 	sudo dpkg -i atom-amd64.deb
