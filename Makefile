@@ -8,6 +8,7 @@ all:
 	make preparations libs
 	make upgrade
 	make fonts
+	make atom
 	make graphics darktable 
 	make 3dprint
 	make networking google_chrome dropbox httpie
@@ -41,6 +42,11 @@ fonts:
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Regular.otf -O ~/.fonts/FiraCode-Regular.otf
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
 	fc-cache -v
+
+atom:
+	rm -f atom-amd64.deb
+	wget https://atom.io/download/deb -O atom-amd64.deb
+	sudo dpkg -i atom-amd64.deb
 
 python:
 	make preparations
@@ -84,7 +90,7 @@ pandoc:
 	sudo apt -y install pandoc pandoc-citeproc texlive texlive-latex-extra texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-german texlive-xetex preview-latex-style dvipng nbibtex
 
 system:
-	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim-qt
+	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui 
 
 virtualbox: 
 	sudo apt -y install VirtualBox\*
