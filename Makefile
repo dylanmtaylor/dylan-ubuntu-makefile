@@ -23,6 +23,7 @@ all:
 	make steam
 	make libreoffice_full
 	make unetbootin
+	make monodevelop
 
 preparations:
 	make update
@@ -122,6 +123,9 @@ unetbootin:
 	echo "deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu artful main" | sudo tee /etc/apt/sources.list.d/gezakovacs-ubuntu-ppa-bionic.list
 	sudo apt-get update
 	sudo apt-get -y install unetbootin
+
+monodevelop:
+	sudo apt -y install monodevelop
 
 steam:
 	sudo apt -y install python-apt
