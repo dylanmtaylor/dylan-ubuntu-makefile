@@ -95,7 +95,7 @@ media:
 	sudo apt -y install libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	# Fix mplayer bug - "Error in skin config file on line 6: PNG read error in /usr/share/mplayer/skins/default/main"
-	cd /usr/share/mplayer/skins/default; for FILE in *.png ; do sudo convert $FILE -define png:format=png24 $FILE ; done
+	cd /usr/share/mplayer/skins/default; for FILE in *.png ; do sudo convert $$FILE -define png:format=png24 $$FILE ; done
 
 pandoc:
 	sudo apt -y install pandoc pandoc-citeproc texlive texlive-latex-extra texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-german texlive-xetex preview-latex-style dvipng nbibtex perl-tk
