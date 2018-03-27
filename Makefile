@@ -29,7 +29,7 @@ all:
 
 preparations:
 	make update
-	sudo apt -y install software-properties-common build-essential gnome-session checkinstall wget curl git libssl-dev apt-transport-https ca-certificates
+	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates
 
 libs:
 	sudo apt -y install libavahi-compat-libdnssd-dev
@@ -50,6 +50,11 @@ fonts:
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Regular.otf -O ~/.fonts/FiraCode-Regular.otf
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
 	fc-cache -v
+	
+gnomegdm:
+	# Default GDM is pretty ugly. This forces upstream GDM theming.
+	sudo apt -y install gnome-session
+	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 
 atom:
 	sudo apt -y install gconf-service gconf2
