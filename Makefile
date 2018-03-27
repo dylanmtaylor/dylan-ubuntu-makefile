@@ -160,5 +160,5 @@ unifi:
 	echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 	sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ubnt.com/unifi/unifi-repo.gpg
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 06E85760C0A52C50
-	sudo apt update
+	sudo apt-get update --allow-releaseinfo-change
 	sudo apt -y install unifi
