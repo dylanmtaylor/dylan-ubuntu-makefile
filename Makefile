@@ -29,7 +29,7 @@ all:
 
 preparations:
 	make update
-	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates
+	sudo apt -y install software-properties-common build-essential gnome-session checkinstall wget curl git libssl-dev apt-transport-https ca-certificates
 
 libs:
 	sudo apt -y install libavahi-compat-libdnssd-dev
