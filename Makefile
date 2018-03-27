@@ -10,6 +10,7 @@ all:
 	make update
 	make upgrade
 	make fonts
+	make gnomegdm
 	make python
 	make atom
 	make graphics darktable 
