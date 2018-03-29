@@ -46,7 +46,7 @@ upgrade:
 
 fonts:
 	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
-	curl https://raw.githubusercontent.com/dylanmtaylor/Web-Font-Load/master/install_debian.sh | sh # Install all the google fonts
+	curl https://raw.githubusercontent.com/dylanmtaylor/Web-Font-Load/master/install_generic.sh | bash # Install all the google fonts
 	mkdir -p ~/.fonts/
 	rm -f ~/.fonts/FiraCode-*
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Bold.otf -O ~/.fonts/FiraCode-Bold.otf
