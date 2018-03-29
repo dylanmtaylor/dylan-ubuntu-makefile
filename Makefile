@@ -28,6 +28,9 @@ all:
 	make wine
 
 preparations:
+	sudo apt-add-repository universe
+	sudo apt-add-repository multiverse
+	sudo apt-add-repository restricted
 	make update
 	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates
 
