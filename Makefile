@@ -25,7 +25,6 @@ all:
 	make steam
 	make libreoffice_full
 	make unetbootin
-	make monodevelop
 	make wine
 
 preparations:
@@ -76,7 +75,7 @@ graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
 
 3dprint:
-	sudo apt -y install slic3r cura freecad
+	sudo apt -y install slic3r cura freecad libcanberra-gtk-module libcanberra-gtk-module:i386
 
 darktable:
 	sudo apt -y install darktable
@@ -110,8 +109,7 @@ system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim
 
 virtualbox: 
-	sudo apt -y install VirtualBox\*
-
+	sudo apt install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
 ansible:
 	sudo apt -y install ansible
 	
@@ -135,9 +133,6 @@ unetbootin:
 	sudo apt-get update
 	sudo apt-get -y install unetbootin
 
-monodevelop:
-	sudo apt -y install monodevelop
-
 steam:
 	sudo apt -y install python-apt
 	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
@@ -147,7 +142,7 @@ libreoffice_full:
 	sudo apt -y install libreoffice
 	
 wine:
-	sudo apt -y install --install-recommends wine64 dosbox
+	sudo apt -y install --install-recommends wine-dev mono-complete dosbox
  
 unity3d:
 	rm -f UnitySetup-2018.1.0b8
