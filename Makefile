@@ -10,7 +10,7 @@ all:
 	make update
 	make upgrade
 	make fonts
-	make gnomegdm
+	make gnome
 	make python
 	make atom
 	make graphics darktable 
@@ -53,9 +53,9 @@ fonts:
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
 	fc-cache -v
 	
-gnomegdm:
+gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-session
+	sudo apt -y install gnome-session vanilla-gnome-desktop
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 
 atom:
