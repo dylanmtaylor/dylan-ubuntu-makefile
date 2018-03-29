@@ -55,7 +55,7 @@ fonts:
 	
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-session vanilla-gnome-desktop
+	sudo apt -y install gnome-session vanilla-gnome-default-settings
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 
 atom:
