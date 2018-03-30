@@ -9,7 +9,6 @@ all:
 	make preparations libs
 	make update
 	make upgrade
-	make fonts
 	make gnome
 	make python
 	make atom
@@ -21,11 +20,11 @@ all:
 	make archives system filesystem tools nautilus
 	make docker ansible virtualbox vagrant
 	make teamviewer
-	make xmind
 	make steam
 	make libreoffice_full
 	make unetbootin
 	make wine
+	make fonts
 
 preparations:
 	sudo apt-add-repository universe
@@ -80,7 +79,7 @@ graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
 
 3dprint:
-	sudo apt -y install slic3r cura freecad libcanberra-gtk-module libcanberra-gtk-module:i386
+	sudo apt -y install slic3r cura freecad libcanberra-gtk-module #libcanberra-gtk-module:i386
 
 darktable:
 	sudo apt -y install darktable
