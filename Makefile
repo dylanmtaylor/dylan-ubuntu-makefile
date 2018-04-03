@@ -106,6 +106,9 @@ google_chrome:
 	sudo dpkg -i google-chrome-stable_current_amd64.deb
 	rm -f google-chrome-stable_current_amd64.deb
 	
+dropbox:
+	sudo apt -y install nautilus-dropbox
+	
 archives:
 	sudo apt -y install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
