@@ -2,8 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts atom python ruby virtualbox vagrant graphics darktable networking google_chrome dropbox slack archives media pandoc system docker ansible filesystem  tools nautilus httpie esl_repo erlang elixir couchdb teamviewer xmind presentation steam libreoffice_full
-
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics 3dprint darktable networking google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
