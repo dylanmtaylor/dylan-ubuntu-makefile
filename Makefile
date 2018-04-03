@@ -19,7 +19,7 @@ all:
 	# make dropbox 
 	make harddisk
 	make media
-	# make pandoc
+	make pandoc
 	make archives system filesystem tools
 	make ansible virtualbox vagrant
 	make teamviewer
