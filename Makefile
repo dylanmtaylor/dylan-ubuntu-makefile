@@ -27,8 +27,8 @@ all:
 	make libreoffice_full
 	make unetbootin
 	make wine
-	make fonts
 	make gitkraken_snap
+	make fonts
 
 preparations:
 	sudo apt-add-repository universe
