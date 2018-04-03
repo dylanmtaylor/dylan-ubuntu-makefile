@@ -17,7 +17,7 @@ all:
 	make networking google_chrome dropbox 
 	make media pandoc
 	make archives system filesystem tools
-	make docker ansible virtualbox vagrant
+	make ansible virtualbox vagrant
 	make teamviewer
 	make steam
 	make libreoffice_full
@@ -77,8 +77,6 @@ ruby:
 vagrant:
 	sudo apt -y install vagrant
 	
-
-
 graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
 
