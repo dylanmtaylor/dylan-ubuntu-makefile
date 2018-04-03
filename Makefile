@@ -15,9 +15,11 @@ all:
 	make graphics darktable 
 	make 3dprint
 	make obs
-	make networking google_chrome #dropbox 
+	make networking google_chrome
+	# make dropbox 
 	make harddisk
-	make media pandoc
+	make media
+	make pandoc
 	make archives system filesystem tools
 	make ansible virtualbox vagrant
 	make teamviewer
@@ -122,7 +124,8 @@ media:
 	cd /usr/share/mplayer/skins/default; for FILE in *.png ; do sudo convert $$FILE -define png:format=png24 $$FILE ; done
 
 pandoc:
-	sudo apt -y install pandoc pandoc-citeproc texlive texlive-latex-extra texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-german texlive-xetex preview-latex-style dvipng nbibtex perl-tk
+	sudo apt install pandoc pandoc-citeproc dvipng perl-tk
+	# sudo apt -y install texlive texlive-latex-extra texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-german texlive-xetex preview-latex-style nbibtex
 
 system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim
@@ -139,6 +142,7 @@ tools:
 	sudo apt -y install htop meld guake keepassx retext vim geany glade ghex myrepos baobab byobu gnome-tweaks pv fortune cowsay lolcat
 
 teamviewer:
+	sudo apt -y install qml-module-qtquick-dialogs qml-module-qtquick-privatewidgets
 	rm -f teamviewer_amd64.deb
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
