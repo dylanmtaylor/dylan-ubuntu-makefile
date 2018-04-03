@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics 3dprint darktable networking google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
 
 all:
 	@echo "Installation of ALL targets"
@@ -15,6 +15,7 @@ all:
 	make graphics darktable 
 	make 3dprint
 	make networking google_chrome dropbox 
+	make harddisk
 	make media pandoc
 	make archives system filesystem tools
 	make ansible virtualbox vagrant
@@ -88,6 +89,9 @@ darktable:
 
 networking:
 	sudo apt -y install pidgin filezilla vinagre remmina chromium-browser pepperflashplugin-nonfree hexchat wireshark-gtk
+
+harddisk:
+	sudo apt -y install smartmontools nvme-cli gsmartcontrol smart-notifier
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
