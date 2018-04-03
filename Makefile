@@ -42,6 +42,7 @@ update:
 
 upgrade:
 	sudo apt -y full-upgrade
+	sudo snap refresh
 
 fonts:
 	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
