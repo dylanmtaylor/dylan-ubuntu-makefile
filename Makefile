@@ -96,7 +96,7 @@ darktable:
 	sudo apt -y install darktable
 
 networking:
-	sudo apt -y install pidgin filezilla vinagre remmina chromium-browser pepperflashplugin-nonfree hexchat wireshark-gtk
+	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk
 
 harddisk:
 	sudo apt -y install smartmontools nvme-cli gsmartcontrol smart-notifier
