@@ -3,6 +3,7 @@
 # Feel free to use this if you would like to. 
 
 .PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics 3dprint darktable networking google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
+
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
