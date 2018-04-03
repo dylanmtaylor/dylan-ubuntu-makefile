@@ -99,7 +99,7 @@ networking:
 	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba
 
 harddisk:
-	sudo apt -y install smartmontools nvme-cli gsmartcontrol smart-notifier
+	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
 
 google_chrome:
 	rm -f google-chrome-stable_current_amd64.deb
