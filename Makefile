@@ -15,9 +15,11 @@ all:
 	make graphics darktable 
 	make 3dprint
 	make obs
-	make networking google_chrome #dropbox 
+	make networking google_chrome
+	# make dropbox 
 	make harddisk
-	make media pandoc
+	make media
+	# make pandoc
 	make archives system filesystem tools
 	make ansible virtualbox vagrant
 	make teamviewer
