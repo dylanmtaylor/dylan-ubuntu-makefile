@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi
 
 all:
 	@echo "Installation of ALL targets"
@@ -14,6 +14,7 @@ all:
 	make atom
 	make graphics darktable 
 	make 3dprint
+	make obs
 	make networking google_chrome dropbox 
 	make harddisk
 	make media pandoc
@@ -81,6 +82,9 @@ vagrant:
 	
 graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
+
+obs:
+	sudo apt -y install obs-studio
 
 3dprint:
 	sudo apt -y install slic3r cura freecad libcanberra-gtk-module #libcanberra-gtk-module:i386
