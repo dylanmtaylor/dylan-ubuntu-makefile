@@ -14,10 +14,9 @@ all:
 	make atom
 	make graphics darktable 
 	make 3dprint
-	make networking google_chrome dropbox httpie
+	make networking google_chrome dropbox 
 	make media pandoc
-	make presentation
-	make archives system filesystem tools nautilus
+	make archives system filesystem tools
 	make docker ansible virtualbox vagrant
 	make teamviewer
 	make steam
@@ -74,6 +73,11 @@ python:
 ruby:
 	sudo apt -y install ruby ruby-dev ruby-bGundler
 	sudo gem install bundler
+	
+vagrant:
+	sudo apt -y install vagrant
+	
+
 
 graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
