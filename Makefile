@@ -84,6 +84,13 @@ gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
 	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-maps
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
+	# Caffeine shell extenstion
+	rm -rf gnome-shell-extension-caffeine
+	git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
+	./gnome-shell-extension-caffeine/update-locale.sh
+	bash -c 'cd gnome-shell-extension-caffeine && glib-compile-schemas --strict --targetdir=caffeine@patapon.info/schemas/ caffeine@patapon.info/schemas'
+	mkdir -p ~/.local/share/gnome-shell/extensions/
+	cp -r gnome-shell-extension-caffeine/caffeine@patapon.info ~/.local/share/gnome-shell/extensions/
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
