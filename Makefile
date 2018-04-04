@@ -71,7 +71,11 @@ gnome:
 
 atom:
 	sudo apt -y install gconf-service gconf2
-	sudo flatpak install -y https://flathub.org/repo/appstream/io.atom.Atom.flatpakref
+	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+	sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+	make update
+	sudo apt-get install atom
+	# sudo flatpak install -y https://flathub.org/repo/appstream/io.atom.Atom.flatpakref
 	# rm -f atom-amd64.deb
 	# wget https://atom.io/download/deb -O atom-amd64.deb
 	# sudo dpkg -i atom-amd64.deb
