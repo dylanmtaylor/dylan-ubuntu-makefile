@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype
 
 all:
 	@echo "Installation of ALL targets"
@@ -13,6 +13,7 @@ all:
 	make python
 	make atom
 	make graphics darktable
+	make cad
 	make 3dprint
 	make obs
 	make networking google_chrome
@@ -95,8 +96,16 @@ graphics:
 obs:
 	sudo apt -y install obs-studio
 
+cad:
+	sudo apy -y install freecad
+
 3dprint:
-	sudo apt -y install slic3r cura freecad libcanberra-gtk-module #libcanberra-gtk-module:i386
+	sudo apt -y install slic3r cura libcanberra-gtk-module #libcanberra-gtk-module:i386
+	# Prusa MK2s Slic3r settings
+	mkdir -p $$HOME/.Slic3r/
+	rm -rf Slic3r-settings
+	git clone https://github.com/prusa3d/Slic3r-settings.git
+	rsync -avzh Slic3r-settings/Slic3r\ settings\ MK2S\ MK2MM\ and\ MK3/ $$HOME/.Slic3r/
 
 darktable:
 	sudo apt -y install darktable
