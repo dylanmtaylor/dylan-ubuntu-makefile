@@ -56,7 +56,7 @@ upgrade:
 
 fonts:
 	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
-	curl https://raw.githubusercontent.com/dylanmtaylor/Web-Font-Load/master/install_generic.sh | bash # Install all the google fonts
+	# Install FireCode
 	mkdir -p ~/.fonts/
 	rm -f ~/.fonts/FiraCode-*
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Bold.otf -O ~/.fonts/FiraCode-Bold.otf
@@ -64,6 +64,28 @@ fonts:
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Medium.otf -O ~/.fonts/FiraCode-Medium.otf
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Regular.otf -O ~/.fonts/FiraCode-Regular.otf
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
+	# Install all the google fonts
+	echo "Installing all Google Web Fonts onto your System"
+	echo "Downloading the fonts..."
+	wget -N https://github.com/google/fonts/tarball/master -O master.tar.gz
+	echo "Extracting the fonts..."
+	mkdir -p goog-fonts/fonts
+	tar -zxf master.tar.gz -C goog-fonts/fonts
+	cd goog-fonts
+	cd fonts
+	find . -mindepth 2 -type f -print -exec mv {} . \;
+	rm -R -- */
+	rm *.txt
+	rm *.json
+	rm *.csv
+	rm *.md
+	rm *.html
+	rm *.py
+	rm AUTHORS
+	rm CONTRIBUTORS
+	cd ..
+	sudo mv -f fonts/* /usr/local/share/fonts/
+	# Refresh font cache
 	fc-cache -v
 
 gnome:
@@ -233,4 +255,3 @@ slic3r_master:
 	wget -N https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
 	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
-
