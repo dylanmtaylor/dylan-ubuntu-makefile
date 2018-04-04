@@ -119,7 +119,7 @@ obs:
 	sudo apt -y install obs-studio
 
 cad:
-	sudo apy -y install freecad
+	sudo apt -y install freecad
 
 3dprint:
 	sudo apt -y install cura libcanberra-gtk-module #libcanberra-gtk-module:i386
