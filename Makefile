@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken googleplaymusic
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken googleplaymusic skype
 
 all:
 	@echo "Installation of ALL targets"
@@ -172,6 +172,7 @@ unetbootin:
 
 steam:
 	sudo apt -y install python-apt
+	rm -f steam.deb
 	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 	sudo dpkg -i steam.deb
 
