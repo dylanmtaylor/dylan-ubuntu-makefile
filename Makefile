@@ -186,7 +186,7 @@ wine:
 	sudo dpkg --add-architecture i386
 	sudo apt-key add winerelease.key
 	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ artful main" #hack until bionic packages are released
-	sudo apt -y install --install-recommends winehq-devel
+	sudo apt -y install --install-recommends winehq-devel fonts-wine
 
 unity3d:
 	rm -f UnitySetup-2018.1.0b8
