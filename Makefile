@@ -215,8 +215,8 @@ unity3d:
 	rm -f UnitySetup-2018.1.0b8
 	wget https://beta.unity3d.com/download/ee2fb9f9da52/UnitySetup-2018.1.0b8
 	chmod +x UnitySetup-2018.1.0b8
-	sudo ./UnitySetup-2018.1.0b8 --unattended -l $$HOME/Unity3D
-	sudo chown -R $$USER:$$USER $$HOME/Unity3D
+	sudo ./UnitySetup-2018.1.0b8 --unattended -l /opt/Unity3D
+	sudo chown -R $$USER:$$USER /opt/Unity3D
 
 unifi:
 	echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
@@ -243,7 +243,7 @@ skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
 
 slic3r_master:
-	cat slic3r_master.desktop | sudo tee ~/.local/share/applications/slic3r_master.desktop
+	cat slic3r_master.desktop | sudo tee /usr/share/applications/slic3r_master.desktop
 	wget -N https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
 	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
