@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
 
 all:
 	@echo "Installation of ALL targets"
@@ -28,6 +28,8 @@ all:
 	make teamviewer
 	make steam
 	make libreoffice_full
+	make simplenote
+	make scribus
 	make unetbootin
 	make mono
 	make dosbox wine
@@ -42,7 +44,7 @@ preparations:
 	sudo apt-add-repository multiverse
 	sudo apt-add-repository restricted
 	make update
-	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak synaptic
+	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak
 
 libs:
 	sudo apt -y install libavahi-compat-libdnssd-dev
@@ -163,7 +165,7 @@ pandoc:
 	# sudo apt -y install texlive texlive-latex-extra texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra texlive-lang-german texlive-xetex preview-latex-style nbibtex
 
 system:
-	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim powertop
+	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim powertop synaptic gdebi
 	# sudo powertop --auto-tune
 
 virtualbox:
@@ -204,6 +206,12 @@ steam:
 
 libreoffice_full:
 	sudo apt -y install libreoffice
+
+simplenote:
+	sudo snap install simplenote --edge
+
+scribus:
+	sudo apt -y install scribus
 
 mono:
 	sudo apt -y install mono-complete
