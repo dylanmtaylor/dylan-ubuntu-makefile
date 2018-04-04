@@ -199,7 +199,8 @@ gitkraken:
 	sudo snap install gitkraken
 
 googleplaymusic:
-	sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref
+	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi	
 	
 skype:
-	sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref
+	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi	
+
