@@ -77,7 +77,7 @@ python:
 	sudo -H pip install --upgrade pip
 
 ruby:
-	sudo apt -y install ruby ruby-dev ruby-bundler
+	sudo apt -y install ruby ruby-dev ruby-bundler jekyll
 	sudo gem install bundler
 	
 vagrant:
