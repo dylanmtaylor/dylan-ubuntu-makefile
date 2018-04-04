@@ -50,6 +50,7 @@ update:
 upgrade:
 	sudo apt -y full-upgrade
 	sudo snap refresh
+	sudo flatpak update
 
 fonts:
 	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
