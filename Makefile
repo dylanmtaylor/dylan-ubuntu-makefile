@@ -83,7 +83,7 @@ fonts:
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-maps
+	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-maps evolution
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Caffeine shell extenstion
 	rm -rf gnome-shell-extension-caffeine
@@ -186,6 +186,8 @@ pandoc:
 system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim powertop synaptic gdebi-core
 	# sudo powertop --auto-tune
+	sudo apt-add-repository -y ppa:teejee2008/ppa
+	sudo apt -y install ukuu
 
 virtualbox:
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
