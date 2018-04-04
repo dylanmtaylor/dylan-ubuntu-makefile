@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype slic3r_master
 
 all:
 	@echo "Installation of ALL targets"
@@ -224,3 +224,8 @@ googleplaymusic:
 
 skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
+
+slic3r_master:
+	sudo rm -rf /opt/Slic3r/
+	wget https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
+	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
