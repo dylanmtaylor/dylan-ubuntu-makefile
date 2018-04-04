@@ -35,7 +35,7 @@ all:
 	make gitkraken
 	make googleplaymusic
 	make skype
-	make fonts
+	# make fonts
 
 preparations:
 	sudo apt-add-repository universe
