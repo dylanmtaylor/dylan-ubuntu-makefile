@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken_snap
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken
 
 all:
 	@echo "Installation of ALL targets"
@@ -22,12 +22,13 @@ all:
 	make pandoc
 	make archives system filesystem tools
 	make ansible virtualbox vagrant
+	make docker
 	make teamviewer
 	make steam
 	make libreoffice_full
 	make unetbootin
 	make wine
-	make gitkraken_snap
+	make gitkraken
 	make fonts
 
 preparations:
@@ -132,9 +133,13 @@ system:
 
 virtualbox: 
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
+
 ansible:
 	sudo apt -y install ansible
-	
+
+docker:
+	sudo snap install docker
+
 filesystem:
 	sudo apt -y install cryptsetup libblockdev-crypto2 exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
 
@@ -180,5 +185,5 @@ unifi:
 	sudo apt-get update --allow-releaseinfo-change
 	sudo apt -y install unifi
 	
-gitkraken_snap:
+gitkraken:
 	sudo snap install gitkraken
