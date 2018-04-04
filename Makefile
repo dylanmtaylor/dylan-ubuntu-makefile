@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype slic3r_master
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
 
 all:
 	@echo "Installation of ALL targets"
@@ -30,6 +30,7 @@ all:
 	make unetbootin
 	make mono
 	make dosbox wine
+	make kdenlive
 	make gitkraken
 	make googleplaymusic
 	make skype
@@ -228,6 +229,9 @@ lastpass:
 	wget -q https://lastpass.com/lplinux.tar.bz2 -O lplinux.tar.bz2
 	tar xjvf lplinux.tar.bz2
 	./install_lastpass.sh
+
+kdenlive:
+	if flatpak list | grep org.kde.kdenlive/x86_64/stable; then echo kdenlive is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/org.kde.kdenlive.flatpakref; fi
 
 gitkraken:
 	sudo snap install gitkraken
