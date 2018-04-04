@@ -70,10 +70,10 @@ gnome:
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 
 atom:
-	sudo apt -y install gconf-service gconf2
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
 	sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
 	make update
+	sudo apt -y install gconf-service gconf2 gir1.2-gnomekeyring-1.0
 	sudo apt -y install atom
 	# sudo flatpak install -y https://flathub.org/repo/appstream/io.atom.Atom.flatpakref
 	# rm -f atom-amd64.deb
