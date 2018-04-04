@@ -70,9 +70,10 @@ gnome:
 
 atom:
 	sudo apt -y install gconf-service gconf2
-	rm -f atom-amd64.deb
-	wget https://atom.io/download/deb -O atom-amd64.deb
-	sudo dpkg -i atom-amd64.deb
+	sudo flatpak install -y https://flathub.org/repo/appstream/io.atom.Atom.flatpakref
+	# rm -f atom-amd64.deb
+	# wget https://atom.io/download/deb -O atom-amd64.deb
+	# sudo dpkg -i atom-amd64.deb
 
 python:
 	make preparations
