@@ -135,7 +135,7 @@ darktable:
 	sudo apt -y install darktable
 
 networking:
-	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool
+	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle
 
 harddisk:
 	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
