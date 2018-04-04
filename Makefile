@@ -205,7 +205,9 @@ steam:
 	sudo dpkg -i steam.deb
 
 libreoffice_full:
-	sudo apt -y install libreoffice
+	# Remove the version of LibreOffice that ships with Ubuntu and install the upstream flatpak version
+	sudo apt -y remove libreoffice libreoffice-base libreoffice-calc libreoffice-core libreoffice-draw libreoffice-impress
+	sudo flatpak install -y https://flathub.org/repo/appstream/org.libreoffice.LibreOffice.flatpakref
 
 simplenote:
 	sudo snap install simplenote --edge
