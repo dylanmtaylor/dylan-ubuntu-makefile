@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Unity
+Exec=/opt/Unity3D/Editor/Unity %F
+Exec=/opt/Unity3D/Editor/Unity %U
+Icon=/opt/Unity3D/Editor/Data/Resources/LargeUnityIcon.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;Application;
+MimeType=x-scheme-handler/com.unity3d.kharma;
