@@ -38,7 +38,7 @@ preparations:
 	sudo apt-add-repository multiverse
 	sudo apt-add-repository restricted
 	make update
-	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak
+	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak
 
 libs:
 	sudo apt -y install libavahi-compat-libdnssd-dev
