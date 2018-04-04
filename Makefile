@@ -142,6 +142,7 @@ harddisk:
 
 google_chrome:
 	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+	wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 	make update
 	sudo apt -y install google-chrome-stable libappindicator1 libindicator7
 
