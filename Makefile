@@ -190,4 +190,4 @@ gitkraken:
 	sudo snap install gitkraken
 
 googleplaymusic:
-	sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref
+	sudo snap install google-play-music-desktop-player
