@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi lastpass gitkraken googleplaymusic skype
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass gitkraken googleplaymusic skype
 
 all:
 	@echo "Installation of ALL targets"
@@ -27,7 +27,8 @@ all:
 	make steam
 	make libreoffice_full
 	make unetbootin
-	make wine
+	make mono
+	make dosbox wine
 	make gitkraken
 	make googleplaymusic
 	make skype
@@ -172,8 +173,20 @@ steam:
 libreoffice_full:
 	sudo apt -y install libreoffice
 
+mono:
+	sudo apt -y install mono-complete
+
+dosbox:
+	sudo apt -y install dosbox
+
 wine:
-	sudo apt -y install --install-recommends wine-dev mono-complete dosbox
+	# Based on https://wiki.winehq.org/Ubuntu
+	rm -f winerelease.key
+	wget -nc https://dl.winehq.org/wine-builds/Release.key -q -O winerelease.key
+	sudo dpkg --add-architecture i386
+	sudo apt-key add winerelease.key
+	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ artful main" #hack until bionic packages are released
+	sudo apt -y install --install-recommends winehq-devel
 
 unity3d:
 	rm -f UnitySetup-2018.1.0b8
