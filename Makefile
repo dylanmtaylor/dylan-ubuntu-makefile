@@ -100,7 +100,10 @@ cad:
 	sudo apy -y install freecad
 
 3dprint:
-	sudo apt -y install slic3r cura libcanberra-gtk-module #libcanberra-gtk-module:i386
+	sudo apt -y install cura libcanberra-gtk-module #libcanberra-gtk-module:i386
+	# Get Slic3r from master
+	sudo apt -y remove slic3r
+	make slic3r_master
 	# Prusa MK2s Slic3r settings
 	mkdir -p $$HOME/.Slic3r/
 	rm -rf Slic3r-settings
@@ -226,7 +229,9 @@ skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
 
 slic3r_master:
+	cat slic3r_master.desktop | sudo tee ~/.local/share/applications/slic3r_master.desktop
 	rm -f Slic3r-master-latest.tar.bz2
 	wget https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
 	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
+
