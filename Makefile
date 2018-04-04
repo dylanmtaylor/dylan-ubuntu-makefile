@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
 
 all:
 	@echo "Installation of ALL targets"
@@ -12,6 +12,7 @@ all:
 	make gnome
 	make python
 	make atom
+	make vscode
 	make graphics darktable
 	make cad
 	make 3dprint
@@ -41,7 +42,7 @@ preparations:
 	sudo apt-add-repository multiverse
 	sudo apt-add-repository restricted
 	make update
-	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak
+	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak synaptic
 
 libs:
 	sudo apt -y install libavahi-compat-libdnssd-dev
@@ -88,6 +89,13 @@ atom:
 	make update
 	sudo apt -y install gconf-service gconf2 gir1.2-gnomekeyring-1.0
 	sudo apt -y install atom
+
+vscode:
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+	make update
+	sudo apt-get install code
 
 python:
 	make preparations
