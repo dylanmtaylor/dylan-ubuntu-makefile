@@ -30,6 +30,7 @@ all:
 	make wine
 	make gitkraken
 	make googleplaymusic
+	make skype
 	make fonts
 
 preparations:
@@ -191,3 +192,6 @@ gitkraken:
 
 googleplaymusic:
 	sudo snap install google-play-music-desktop-player
+	
+skype:
+	sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref
