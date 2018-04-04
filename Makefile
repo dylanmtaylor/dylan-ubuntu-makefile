@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to. 
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken googleplaymusic
 
 all:
 	@echo "Installation of ALL targets"
@@ -29,6 +29,7 @@ all:
 	make unetbootin
 	make wine
 	make gitkraken
+	make googleplaymusic
 	make fonts
 
 preparations:
@@ -187,3 +188,6 @@ unifi:
 	
 gitkraken:
 	sudo snap install gitkraken
+
+googleplaymusic:
+	sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref
