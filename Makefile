@@ -1,8 +1,8 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
-# Feel free to use this if you would like to. 
+# Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi gitkraken googleplaymusic skype
+.PHONY:	all preparations libs update upgrade fonts gnome atom python ruby vagrant graphics obs 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full wine unity3d unifi lastpass gitkraken googleplaymusic skype
 
 all:
 	@echo "Installation of ALL targets"
@@ -12,11 +12,11 @@ all:
 	make gnome
 	make python
 	make atom
-	make graphics darktable 
+	make graphics darktable
 	make 3dprint
 	make obs
 	make networking google_chrome
-	# make dropbox 
+	# make dropbox
 	make harddisk
 	make media
 	make pandoc
@@ -63,7 +63,7 @@ fonts:
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Regular.otf -O ~/.fonts/FiraCode-Regular.otf
 	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
 	fc-cache -v
-	
+
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
 	sudo apt -y install gnome-session vanilla-gnome-default-settings
@@ -75,10 +75,6 @@ atom:
 	make update
 	sudo apt -y install gconf-service gconf2 gir1.2-gnomekeyring-1.0
 	sudo apt -y install atom
-	# sudo flatpak install -y https://flathub.org/repo/appstream/io.atom.Atom.flatpakref
-	# rm -f atom-amd64.deb
-	# wget https://atom.io/download/deb -O atom-amd64.deb
-	# sudo dpkg -i atom-amd64.deb
 
 python:
 	make preparations
@@ -88,10 +84,10 @@ python:
 ruby:
 	sudo apt -y install ruby ruby-dev ruby-bundler jekyll
 	sudo gem install bundler
-	
+
 vagrant:
 	sudo apt -y install vagrant
-	
+
 graphics:
 	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
 
@@ -111,17 +107,13 @@ harddisk:
 	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
 
 google_chrome:
-	# rm -f google-chrome-stable_current_amd64.deb
-	# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 	make update
 	sudo apt -y install google-chrome-stable libappindicator1 libindicator7
-	# sudo dpkg -i google-chrome-stable_current_amd64.deb
-	# rm -f google-chrome-stable_current_amd64.deb
-	
+
 dropbox:
 	sudo apt -y install nautilus-dropbox
-	
+
 archives:
 	sudo apt -y install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
@@ -141,7 +133,7 @@ pandoc:
 system:
 	sudo apt -y install icedtea-8-plugin openjdk-8-jre subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim
 
-virtualbox: 
+virtualbox:
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
 
 ansible:
@@ -158,6 +150,7 @@ tools:
 
 teamviewer:
 	sudo apt -y install qml-module-qtquick-dialogs qml-module-qtquick-privatewidgets
+	# I really wish TeamViewer had a repository or something
 	rm -f teamviewer_amd64.deb
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
@@ -178,30 +171,34 @@ steam:
 
 libreoffice_full:
 	sudo apt -y install libreoffice
-	
+
 wine:
 	sudo apt -y install --install-recommends wine-dev mono-complete dosbox
- 
+
 unity3d:
 	rm -f UnitySetup-2018.1.0b8
 	wget https://beta.unity3d.com/download/ee2fb9f9da52/UnitySetup-2018.1.0b8
 	chmod +x UnitySetup-2018.1.0b8
 	sudo ./UnitySetup-2018.1.0b8 --unattended -l $$HOME/Unity3D
 	sudo chown -R $$USER:$$USER $$HOME/Unity3D
-	
+
 unifi:
 	echo 'deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 	sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ubnt.com/unifi/unifi-repo.gpg
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 06E85760C0A52C50
 	sudo apt-get update --allow-releaseinfo-change
 	sudo apt -y install unifi
-	
+
+lastpass:
+	wget -q https://lastpass.com/lplinux.tar.bz2 -O lplinux.tar.bz2
+	tar xjvf lplinux.tar.bz2
+	./install_lastpass.sh
+
 gitkraken:
 	sudo snap install gitkraken
 
 googleplaymusic:
-	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi	
-	
-skype:
-	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi	
+	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi
 
+skype:
+	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
