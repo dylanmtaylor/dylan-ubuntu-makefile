@@ -67,24 +67,12 @@ fonts:
 	# Install all the google fonts
 	echo "Installing all Google Web Fonts onto your System"
 	echo "Downloading the fonts..."
-	wget -N https://github.com/google/fonts/tarball/master -O master.tar.gz
+	#wget -N https://github.com/google/fonts/tarball/master -O master.tar.gz
 	echo "Extracting the fonts..."
+	rm -rf goog-fonts
 	mkdir -p goog-fonts/fonts
 	tar -zxf master.tar.gz -C goog-fonts/fonts
-	cd goog-fonts
-	cd fonts
-	find . -mindepth 2 -type f -print -exec mv {} . \;
-	rm -R -- */
-	rm *.txt
-	rm *.json
-	rm *.csv
-	rm *.md
-	rm *.html
-	rm *.py
-	rm AUTHORS
-	rm CONTRIBUTORS
-	cd ..
-	sudo mv -f fonts/* /usr/local/share/fonts/
+	sudo find goog-fonts/fonts/ -type f -name "*.ttf" -exec cp {} /usr/local/share/fonts \;
 	# Refresh font cache
 	fc-cache -v
 
