@@ -119,7 +119,11 @@ vagrant:
 	sudo apt -y install vagrant
 
 graphics:
-	sudo apt -y install gimp gimp-data gimp-plugin-registry gimp-data-extras inkscape krita graphviz libav-tools jpegoptim mesa-utils shutter
+	# Remove apt package if installed and install the official flatpak version of GIMP as it more closely follows upstream GIMP vesrions
+	sudo apt -y remove gimp
+	if flatpak list | grep org.gimp.GIMP/x86_64/stable; then echo GIMP is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref; fi
+	# Install additional graphics packages
+	sudo apt -y install inkscape krita graphviz libav-tools jpegoptim mesa-utils
 
 obs:
 	sudo apt -y install obs-studio
@@ -189,7 +193,7 @@ filesystem:
 	sudo apt -y install cryptsetup libblockdev-crypto2 exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
 
 tools:
-	sudo apt -y install htop meld guake keepassx retext vim geany glade ghex myrepos baobab byobu gnome-tweaks pv fortune cowsay lolcat screenfetch autokey-gtk
+	sudo apt -y install htop meld guake keepassx retext vim geany glade ghex myrepos baobab byobu gnome-tweaks pv fortune cowsay lolcat screenfetch autokey-gtk shutter
 
 teamviewer:
 	sudo apt -y install qml-module-qtquick-dialogs qml-module-qtquick-privatewidgets
