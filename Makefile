@@ -226,6 +226,7 @@ skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
 
 slic3r_master:
-	sudo rm -rf /opt/Slic3r/
+	rm -f Slic3r-master-latest.tar.bz2
 	wget https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
+	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/

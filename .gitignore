@@ -2,5 +2,7 @@
 *.deb
 UnitySetup*
 *lastpass*
-lplinux.tar.bz2
+lplinux\.tar\.bz2
 winerelease.key
+Slic3r-master-latest\.tar\.bz2
+Slic3r-settings/
