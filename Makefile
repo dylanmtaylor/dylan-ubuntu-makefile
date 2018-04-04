@@ -230,8 +230,7 @@ skype:
 
 slic3r_master:
 	cat slic3r_master.desktop | sudo tee ~/.local/share/applications/slic3r_master.desktop
-	rm -f Slic3r-master-latest.tar.bz2
-	wget https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
+	wget -q -N https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
 	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
 
