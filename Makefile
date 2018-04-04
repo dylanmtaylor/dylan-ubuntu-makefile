@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
 
 all:
 	@echo "Installation of ALL targets"
@@ -32,6 +32,7 @@ all:
 	make scribus
 	make unetbootin
 	make mono
+	make monodevelop
 	make dosbox wine
 	make kdenlive
 	make gitkraken
@@ -235,6 +236,9 @@ scribus:
 
 mono:
 	sudo apt -y install mono-complete
+
+monodevelop:
+	sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref
 
 dosbox:
 	sudo apt -y install dosbox
