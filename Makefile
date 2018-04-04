@@ -107,11 +107,14 @@ harddisk:
 	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
 
 google_chrome:
-	rm -f google-chrome-stable_current_amd64.deb
-	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+	# rm -f google-chrome-stable_current_amd64.deb
+	# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo apt -y install libappindicator1 libindicator7
-	sudo dpkg -i google-chrome-stable_current_amd64.deb
-	rm -f google-chrome-stable_current_amd64.deb
+	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+	make update
+	sudo apt -y install google-chrome-stable
+	# sudo dpkg -i google-chrome-stable_current_amd64.deb
+	# rm -f google-chrome-stable_current_amd64.deb
 	
 dropbox:
 	sudo apt -y install nautilus-dropbox
