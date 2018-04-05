@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts android
 
 all:
 	@echo "Installation of ALL targets"
@@ -38,6 +38,7 @@ all:
 	make gitkraken
 	make googleplaymusic
 	make skype telegram
+	make android
 	make pts
 	# make fonts
 
@@ -114,7 +115,7 @@ vagrant:
 graphics:
 	# Remove apt package if installed and install the official flatpak version of GIMP as it more closely follows upstream GIMP vesrions
 	sudo apt -y remove gimp
-	if flatpak list | grep org.gimp.GIMP/x86_64/stable; then echo GIMP is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref; fi
+	if flatpak list | grep org.gimp.GIMP/x86_64/stable; then echo GIMP is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref; fi
 	# The latest Krita is installed using the Krita Lime ppa
 	sudo add-apt-repository -y ppa:kritalime/ppa
 	sudo apt -y install krita
@@ -220,7 +221,7 @@ steam:
 libreoffice_full:
 	# Remove the version of LibreOffice that ships with Ubuntu and install the upstream flatpak version
 	sudo apt -y remove libreoffice libreoffice-base libreoffice-calc libreoffice-core libreoffice-draw libreoffice-impress
-	if flatpak list | grep org.libreoffice.LibreOffice/x86_64/stable; then echo LibreOffice is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/org.libreoffice.LibreOffice.flatpakref; fi
+	if flatpak list | grep org.libreoffice.LibreOffice/x86_64/stable; then echo LibreOffice is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/org.libreoffice.LibreOffice.flatpakref; fi
 
 simplenote:
 	sudo snap install simplenote --edge
@@ -232,7 +233,7 @@ mono:
 	sudo apt -y install mono-complete
 
 monodevelop:
-	if flatpak list | grep com.xamarin.MonoDevelop/x86_64/stable; then echo MonoDevelop is already installed; else sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref; fi
+	if flatpak list | grep com.xamarin.MonoDevelop/x86_64/stable; then echo MonoDevelop is already installed; else sudo flatpak -y install https://download.mono-project.com/repo/monodevelop.flatpakref; fi
 
 dosbox:
 	sudo apt -y install dosbox
@@ -267,16 +268,16 @@ lastpass:
 	./install_lastpass.sh
 
 kdenlive:
-	if flatpak list | grep org.kde.kdenlive/x86_64/stable; then echo kdenlive is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/org.kde.kdenlive.flatpakref; fi
+	if flatpak list | grep org.kde.kdenlive/x86_64/stable; then echo kdenlive is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/org.kde.kdenlive.flatpakref; fi
 
 gitkraken:
 	sudo snap install gitkraken
 
 googleplaymusic:
-	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi
+	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi
 
 skype:
-	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
+	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
 
 telegram:
 	if flatpak list | grep org.telegram.desktop/x86_64/stable; then echo Telegram is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref; fi
@@ -292,3 +293,7 @@ driverppa:
 
 pts:
 	sudo apt -y install phoronix-test-suite
+
+android:
+	sudo apt -y install android-sdk-platform-tools-common android-tools-adb android-tools-adbd android-tools-fastboot android-tools-fsutils android-tools-mkbootimg
+	if flatpak list | grep com.google.AndroidStudio/x86_64/stable; then echo Android Studio is already installed; else sudo flatpak -y install flathub com.google.AndroidStudio; fi
