@@ -117,8 +117,8 @@ graphics:
 	# Inkscape's latest supported release is officially released as a PPA package.
 	sudo add-apt-repository -y ppa:inkscape.dev/stable
 	sudo apt -y install inkscape
-	# Install additional graphics packages
-  sudo apt -y install graphviz dia libav-tools jpegoptim mesa-utils
+  # Install additional graphics packages
+	sudo apt -y install graphviz dia libav-tools jpegoptim mesa-utils
 
 obs:
 	sudo apt -y install obs-studio
