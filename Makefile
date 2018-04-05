@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master driverppa pts
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts
 
 all:
 	@echo "Installation of ALL targets"
@@ -37,7 +37,7 @@ all:
 	make kdenlive
 	make gitkraken
 	make googleplaymusic
-	make skype
+	make skype telegram
 	make pts
 	# make fonts
 
@@ -62,23 +62,10 @@ upgrade:
 
 fonts:
 	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
-	# Install FireCode
 	mkdir -p ~/.fonts/
-	rm -f ~/.fonts/FiraCode-*
-	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Bold.otf -O ~/.fonts/FiraCode-Bold.otf
-	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Light.otf -O ~/.fonts/FiraCode-Light.otf
-	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Medium.otf -O ~/.fonts/FiraCode-Medium.otf
-	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Regular.otf -O ~/.fonts/FiraCode-Regular.otf
-	wget https://github.com/tonsky/FiraCode/raw/master/distr/otf/FiraCode-Retina.otf -O ~/.fonts/FiraCode-Retina.otf
+	sudo apt -y install fonts-firacode fonts-hack\* fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts tv-fonts
 	# Install all the google fonts
-	echo "Installing all Google Web Fonts onto your System"
-	echo "Downloading the fonts..."
-	wget -N https://github.com/google/fonts/tarball/master -O master.tar.gz
-	echo "Extracting the fonts..."
-	rm -rf goog-fonts
-	mkdir -p goog-fonts/fonts
-	tar -zxf master.tar.gz -C goog-fonts/fonts
-	sudo find goog-fonts/fonts/ -type f -name "*.ttf" -exec cp {} /usr/local/share/fonts \;
+	curl https://raw.githubusercontent.com/dylanmtaylor/Web-Font-Load/master/install.sh | sudo bash
 	# Refresh font cache
 	fc-cache -v
 
@@ -286,6 +273,9 @@ googleplaymusic:
 
 skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak install -y https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
+
+telegram:
+	if flatpak list | grep org.telegram.desktop/x86_64/stable; then echo Telegram is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/org.telegram.desktop.flatpakref; fi
 
 slic3r_master:
 	cat slic3r_master.desktop | sudo tee /usr/share/applications/slic3r_master.desktop
