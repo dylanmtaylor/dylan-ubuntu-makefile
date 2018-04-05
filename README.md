@@ -11,7 +11,7 @@ sudo apt -y install git make ; git clone https://github.com/dylanmtaylor/dylan-u
 
 Some targets are meant to be executed separately, including:
 
-* unity3d
-* fonts
-* dropbox
-* driverppa
+* unity3d: Installs http://unity3d.com
+* fonts: Sets up various font packages and thousands of Google Web Fonts.
+* dropbox: Adds Nautilus dropbox integration
+* driverppa: Enables upstream unsupported proprietary graphics drivers newer than those shipped in Ubuntu
