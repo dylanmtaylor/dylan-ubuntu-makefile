@@ -201,8 +201,7 @@ tools:
 teamviewer:
 	sudo apt -y install qml-module-qtquick-dialogs qml-module-qtquick-privatewidgets
 	# I really wish TeamViewer had a repository or something
-	rm -f teamviewer_amd64.deb
-	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+	wget -N https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 	sudo dpkg -i teamviewer_amd64.deb
 	rm -f teamviewer_amd64.deb
 
@@ -215,8 +214,7 @@ unetbootin:
 
 steam:
 	sudo apt -y install python-apt
-	rm -f steam.deb
-	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+	wget -N https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 	sudo dpkg -i steam.deb
 
 libreoffice_full:
