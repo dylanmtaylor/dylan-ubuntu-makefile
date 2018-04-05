@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype slic3r_master driverppa pts
 
 all:
 	@echo "Installation of ALL targets"
@@ -38,6 +38,7 @@ all:
 	make gitkraken
 	make googleplaymusic
 	make skype
+	make pts
 	# make fonts
 
 preparations:
@@ -291,3 +292,9 @@ slic3r_master:
 	wget -N https://dl.slic3r.org/dev/linux/Slic3r-master-latest.tar.bz2
 	sudo rm -rf /opt/Slic3r/
 	sudo tar xvjf Slic3r-master-latest.tar.bz2 -C /opt/
+
+driverppa:
+	sudo add-apt-repository -y ppa:graphics-drivers/ppa
+
+pts:
+	sudo apt -y install phoronix-test-suite
