@@ -296,7 +296,7 @@ pts:
 android:
 	sudo apt -y install android-sdk-platform-tools-common android-tools-adb android-tools-adbd android-tools-fastboot android-tools-fsutils android-tools-mkbootimg
 	sudo apt -y install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils # for KVM acceleration compatibility
-	sudo adduser $USER kvm
+	sudo adduser $$USER kvm
 	if flatpak list | grep com.google.AndroidStudio/x86_64/stable; then echo Android Studio is already installed; else sudo flatpak -y install flathub com.google.AndroidStudio; fi
 
 dbeaver:
