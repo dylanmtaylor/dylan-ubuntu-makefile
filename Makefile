@@ -80,6 +80,10 @@ gnome:
 	bash -c 'cd gnome-shell-extension-caffeine && glib-compile-schemas --strict --targetdir=caffeine@patapon.info/schemas/ caffeine@patapon.info/schemas'
 	mkdir -p ~/.local/share/gnome-shell/extensions/
 	cp -r gnome-shell-extension-caffeine/caffeine@patapon.info ~/.local/share/gnome-shell/extensions/
+	# Dash to Dock shell extension
+	rm -rf dash-to-dock
+	git clone https://github.com/micheleg/dash-to-dock.git
+	bash -c 'cd dash-to-dock && make && make install'
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -228,7 +232,7 @@ mono:
 	sudo apt -y install mono-complete
 
 monodevelop:
-	if flatpak list | grep com.xamarin.MonoDevelop/x86_64/stable; then echo MonoDevelop is already installed; else 	sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref; fi
+	if flatpak list | grep com.xamarin.MonoDevelop/x86_64/stable; then echo MonoDevelop is already installed; else sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref; fi
 
 dosbox:
 	sudo apt -y install dosbox

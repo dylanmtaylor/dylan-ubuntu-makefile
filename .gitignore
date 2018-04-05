@@ -9,7 +9,5 @@ Slic3r-settings/
 master
 *.gz
 goog-fonts/*
-
-
-
+dash-to-dock/
 gnome-shell-extension-caffeine/
