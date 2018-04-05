@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts android
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts android dbeaver
 
 all:
 	@echo "Installation of ALL targets"
@@ -39,6 +39,7 @@ all:
 	make googleplaymusic
 	make skype telegram
 	make android
+	make dbeaver
 	make pts
 	# make fonts
 
@@ -297,4 +298,9 @@ pts:
 android:
 	sudo apt -y install android-sdk-platform-tools-common android-tools-adb android-tools-adbd android-tools-fastboot android-tools-fsutils android-tools-mkbootimg
 	sudo apt -y install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils # for KVM acceleration compatibility
+	sudo adduser $USER kvm
 	if flatpak list | grep com.google.AndroidStudio/x86_64/stable; then echo Android Studio is already installed; else sudo flatpak -y install flathub com.google.AndroidStudio; fi
+
+dbeaver:
+	wget -N https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+	sudo dpkg -i dbeaver-ce_latest_amd64.deb
