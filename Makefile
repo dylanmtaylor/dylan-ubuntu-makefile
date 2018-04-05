@@ -228,7 +228,7 @@ mono:
 	sudo apt -y install mono-complete
 
 monodevelop:
-	sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref
+	if flatpak list | grep com.xamarin.MonoDevelop/x86_64/stable; then echo MonoDevelop is already installed; else 	sudo flatpak install -y https://download.mono-project.com/repo/monodevelop.flatpakref; fi
 
 dosbox:
 	sudo apt -y install dosbox
