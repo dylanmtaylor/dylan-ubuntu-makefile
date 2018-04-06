@@ -91,7 +91,7 @@ gnome:
 	git clone https://github.com/micheleg/dash-to-dock.git
 	bash -c 'cd dash-to-dock && make && make install'
 	# Remove Ubuntu Dock
-	sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com ~/ || true
+	sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
