@@ -15,3 +15,5 @@ Some targets are meant to be executed separately, including:
 * fonts: Sets up various font packages and thousands of Google Web Fonts.
 * dropbox: Adds Nautilus dropbox integration
 * driverppa: Enables upstream unsupported proprietary graphics drivers newer than those shipped in Ubuntu
+
+It is a known issue that vanilla-gnome-default-settings installation closes make. Either install this first, or just re-run the make command.
