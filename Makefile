@@ -156,7 +156,7 @@ harddisk:
 
 firefox-next:
 	sudo add-apt-repository -y ppa:mozillateam/firefox-next
-	sudo apt -y install firefox
+	sudo apt -y install firefox firefox-locale-en
 
 google_chrome:
 	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
