@@ -65,7 +65,8 @@ upgrade:
 	sudo flatpak update
 
 fonts:
-	sudo apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
+	echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+	sudo DEBIAN_FRONTEND=noninteractive apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
 	mkdir -p ~/.fonts/
 	sudo apt -y install fonts-firacode fonts-hack\* fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts tv-fonts
 	# Install all the google fonts
@@ -249,6 +250,8 @@ dosbox:
 	sudo apt -y install dosbox
 
 wine:
+	echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+	sudo DEBIAN_FRONTEND=noninteractive apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
 	# Based on https://wiki.winehq.org/Ubuntu
 	rm -f winerelease.key
 	wget -nc https://dl.winehq.org/wine-builds/Release.key -q -O winerelease.key
