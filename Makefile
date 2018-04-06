@@ -44,7 +44,7 @@ all:
 	make dbeaver
 	make pts
 	# make fonts
-	chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
+	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
 
 preparations:
 	sudo apt-add-repository universe
@@ -77,7 +77,7 @@ fonts:
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
 	sudo apt -y install vanilla-gnome-default-settings || true
-	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-shell-extensions chrome-gnome-shell evolution
+	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-games gnome-shell-extensions chrome-gnome-shell evolution cheese rhythmbox shotwell simple-scan
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Caffeine shell extenstion
 	rm -rf gnome-shell-extension-caffeine
@@ -154,7 +154,7 @@ darktable:
 
 networking:
 	echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections # Remove prompt for wireshark
-	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle
+	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle transmission-gtk
 
 harddisk:
 	sudo DEBIAN_FRONTEND=noninteractive apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
