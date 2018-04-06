@@ -1,8 +1,10 @@
 # Installs multiple packages on Ubuntu 18.04 (Bionic Beaver)
-# Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
-# Feel free to use this if you would like to.
+# I use this from a minimal desktop installation to set up new systems and install many of the apps I use.
+# This uses versions newer than in the default repositories whenever possible, so everything is bleeding edge.
+# Inspired by and very loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
+# Feel free to use this if you would like to without restriction. If you do I'd appreciate it if you let me know.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
 
 all:
 	@echo "Installation of ALL targets"
@@ -17,7 +19,7 @@ all:
 	make cad
 	make 3dprint
 	make obs
-	make networking google_chrome
+	make networking google_chrome firefox-next
 	# make dropbox
 	make harddisk
 	make media
@@ -73,7 +75,7 @@ fonts:
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-tweak-tool gnome-maps gnome-shell-extensions evolution
+	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-tweak-tool gnome-maps gnome-shell-extensions chrome-gnome-shell evolution
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Caffeine shell extenstion
 	rm -rf gnome-shell-extension-caffeine
@@ -151,6 +153,10 @@ networking:
 
 harddisk:
 	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
+
+firefox-next:
+	sudo add-apt-repository -y ppa:mozillateam/firefox-next
+	sudo apt -y install firefox
 
 google_chrome:
 	echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
