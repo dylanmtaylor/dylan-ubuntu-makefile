@@ -51,6 +51,7 @@ preparations:
 	sudo apt-add-repository multiverse
 	sudo apt-add-repository restricted
 	make update
+	mkdir -p /home/$$USER/.local/share/flatpak/exports/share
 	sudo apt -y install software-properties-common build-essential checkinstall wget curl git libssl-dev apt-transport-https ca-certificates flatpak gnome-software-plugin-flatpak
 
 libs:
@@ -94,6 +95,8 @@ gnome:
 	bash -c 'cd dash-to-dock && make && make install'
 	# Remove Ubuntu Dock
 	sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
+	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
+
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -231,6 +234,7 @@ steam:
 	sudo apt -y install python-apt
 	wget -N https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 	sudo dpkg -i steam.deb
+	rm -f ~/Desktop/steam.desktop
 
 discord:
 	if sudo flatpak list | grep com.discordapp.Discord/x86_64/stable; then echo Discord is already installed; else sudo flatpak -y install flathub com.discordapp.Discord; fi
