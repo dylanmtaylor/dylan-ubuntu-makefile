@@ -2,7 +2,7 @@
 # Inspired by and loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic skype telegram slic3r_master driverppa pts android dbeaver
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
 
 all:
 	@echo "Installation of ALL targets"
@@ -36,8 +36,8 @@ all:
 	make dosbox wine
 	make kdenlive
 	make gitkraken
-	make googleplaymusic
-	make skype telegram
+	make googleplaymusic #spotify
+	make skype telegram discord
 	make android
 	make dbeaver
 	make pts
@@ -165,13 +165,15 @@ archives:
 	sudo apt -y install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
 media:
-	sudo apt -y install mplayer mplayer-gui vlc ubuntu-restricted-extras libavcodec-extra libdvdread4 blender totem okular okular-extra-backends audacity brasero handbrake
+	sudo add-apt-repository -y ppa:thomas-schiex/blender # Get bleeding edge blender releases
+	sudo apt -y install mplayer mplayer-gui vlc ubuntu-restricted-extras libavcodec-extra libdvdread4 blender-edge totem okular okular-extra-backends audacity brasero handbrake youtube-dl
 	sudo apt -y install libxvidcore4 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-alsa gstreamer1.0-fluendo-mp3 gstreamer1.0-libav
 	# DVD Playback
 	sudo apt -y install libdvd-pkg
 	sudo dpkg-reconfigure libdvd-pkg
 	# Fix mplayer bug - "Error in skin config file on line 6: PNG read error in /usr/share/mplayer/skins/default/main"
 	cd /usr/share/mplayer/skins/default; for FILE in *.png ; do sudo convert $$FILE -define png:format=png24 $$FILE ; done
+	sudo adduser $$USER video # Fix CUDA support
 
 pandoc:
 	sudo apt -y install pandoc pandoc-citeproc dvipng perl-tk fonts-lmodern fonts-texgyre lmodern tex-gyre
@@ -216,6 +218,9 @@ steam:
 	sudo apt -y install python-apt
 	wget -N https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 	sudo dpkg -i steam.deb
+
+discord:
+	if flatpak list | grep com.discordapp.Discord/x86_64/stable; then echo Discord is already installed; else sudo flatpak -y install flathub com.discordapp.Discord; fi
 
 libreoffice_full:
 	# Remove the version of LibreOffice that ships with Ubuntu and install the upstream flatpak version
@@ -274,6 +279,9 @@ gitkraken:
 
 googleplaymusic:
 	if flatpak list | grep com.googleplaymusicdesktopplayer.GPMDP/x86_64/stable; then echo Google Play Music is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/com.googleplaymusicdesktopplayer.GPMDP.flatpakref; fi
+
+spotify:
+	if flatpak list | grep com.spotify.Client/x86_64/stable; then echo Spotify is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/com.spotify.Client.flatpakref; fi
 
 skype:
 	if flatpak list | grep com.skype.Client/x86_64/stable; then echo Skype is already installed; else sudo flatpak -y install https://flathub.org/repo/appstream/com.skype.Client.flatpakref; fi
