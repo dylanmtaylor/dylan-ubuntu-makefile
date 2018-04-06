@@ -152,7 +152,7 @@ networking:
 	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle
 
 harddisk:
-	sudo apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
+	sudo DEBIAN_FRONTEND=noninteractive apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
 
 firefox-next:
 	sudo add-apt-repository -y ppa:mozillateam/firefox-next
@@ -175,8 +175,8 @@ media:
 	sudo apt -y install mplayer mplayer-gui vlc ubuntu-restricted-extras libavcodec-extra libdvdread4 blender-edge totem okular okular-extra-backends audacity brasero handbrake youtube-dl
 	sudo apt -y install libxvidcore4 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-alsa gstreamer1.0-fluendo-mp3 gstreamer1.0-libav
 	# DVD Playback
-	sudo apt -y install libdvd-pkg
-	sudo dpkg-reconfigure libdvd-pkg
+	sudo DEBIAN_FRONTEND=noninteractive apt -y install libdvd-pkg
+	sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure libdvd-pkg
 	# Fix mplayer bug - "Error in skin config file on line 6: PNG read error in /usr/share/mplayer/skins/default/main"
 	cd /usr/share/mplayer/skins/default; for FILE in *.png ; do sudo convert $$FILE -define png:format=png24 $$FILE ; done
 	sudo adduser $$USER video # Fix CUDA support
