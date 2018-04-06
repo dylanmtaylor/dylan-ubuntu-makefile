@@ -263,10 +263,9 @@ wine:
 
 unity3d:
 	cat unity3d.desktop | sudo tee /usr/share/applications/unity3d.desktop
-	rm -f UnitySetup-2018.1.0b8
-	wget https://beta.unity3d.com/download/ee2fb9f9da52/UnitySetup-2018.1.0b8
+	wget -N https://beta.unity3d.com/download/ee2fb9f9da52/UnitySetup-2018.1.0b8
 	chmod +x UnitySetup-2018.1.0b8
-	sudo ./UnitySetup-2018.1.0b8 --unattended -l /opt/Unity3D
+	sudo bash -c 'echo y | ./UnitySetup-2018.1.0b8 --unattended -l /opt/Unity3D'
 	sudo chown -R $$USER:$$USER /opt/Unity3D
 
 unifi:
