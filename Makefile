@@ -76,7 +76,8 @@ fonts:
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-session vanilla-gnome-default-settings gnome-weather gnome-tweak-tool gnome-maps gnome-shell-extensions chrome-gnome-shell evolution
+	sudo apt -y install vanilla-gnome-default-settings || true
+	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-shell-extensions chrome-gnome-shell evolution
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Caffeine shell extenstion
 	rm -rf gnome-shell-extension-caffeine
@@ -90,7 +91,7 @@ gnome:
 	git clone https://github.com/micheleg/dash-to-dock.git
 	bash -c 'cd dash-to-dock && make && make install'
 	# Remove Ubuntu Dock
-	sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com ~/
+	sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com ~/ || true
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
