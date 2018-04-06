@@ -44,7 +44,6 @@ all:
 	make dbeaver
 	make pts
 	# make fonts
-	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
 
 preparations:
 	sudo apt-add-repository universe
@@ -94,9 +93,8 @@ gnome:
 	git clone https://github.com/micheleg/dash-to-dock.git
 	bash -c 'cd dash-to-dock && make && make install'
 	# Remove Ubuntu Dock
-	sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
-	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
-
+	# sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
+	sudo apt -y purge gnome-shell-extension-ubuntu-dock
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
