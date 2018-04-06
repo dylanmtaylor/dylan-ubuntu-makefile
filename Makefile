@@ -77,6 +77,8 @@ fonts:
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
 	sudo apt -y install vanilla-gnome-default-settings || true
+	make update
+	make upgrade
 	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-games gnome-shell-extensions chrome-gnome-shell evolution cheese rhythmbox shotwell simple-scan
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Caffeine shell extenstion
