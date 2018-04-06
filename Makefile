@@ -44,6 +44,7 @@ all:
 	make dbeaver
 	make pts
 	# make fonts
+	chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
 
 preparations:
 	sudo apt-add-repository universe
@@ -65,7 +66,6 @@ upgrade:
 	sudo flatpak update
 
 fonts:
-	echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 	sudo DEBIAN_FRONTEND=noninteractive apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
 	mkdir -p ~/.fonts/
 	sudo apt -y install fonts-firacode fonts-hack\* fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts tv-fonts
@@ -254,7 +254,6 @@ dosbox:
 	sudo apt -y install dosbox
 
 wine:
-	echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 	sudo DEBIAN_FRONTEND=noninteractive apt -y install ttf-mscorefonts-installer # Install Microsoft fonts.
 	# Based on https://wiki.winehq.org/Ubuntu
 	rm -f winerelease.key
