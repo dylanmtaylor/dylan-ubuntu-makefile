@@ -201,6 +201,9 @@ system:
 	sudo apt -y install ukuu
 
 virtualbox:
+	# Just in case I want to install the latest version later on. We use the one in Ubuntu's repo for this.
+	echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+	wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
 
 ansible:
