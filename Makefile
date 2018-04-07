@@ -4,7 +4,7 @@
 # Inspired by and very loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to without restriction. If you do I'd appreciate it if you let me know.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking filezilla harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
 
 all:
 	@echo "Installation of ALL targets"
@@ -19,7 +19,7 @@ all:
 	make cad
 	make 3dprint
 	make obs
-	make networking google_chrome firefox-next
+	make networking filezilla google_chrome firefox-next
 	# make dropbox
 	make harddisk
 	make media
@@ -165,7 +165,12 @@ darktable:
 
 networking:
 	echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections # Remove prompt for wireshark
-	sudo apt -y install filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle transmission-gtk
+	sudo apt -y install vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle transmission-gtk
+
+filezilla:
+	sudo apt remove -y filezilla
+	if sudo flatpak list | grep org.filezillaproject.Filezilla/x86_64/stable; then echo FileZilla is already installed; else sudo flatpak -y install flathub org.filezillaproject.Filezilla; fi
+	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
 
 harddisk:
 	sudo DEBIAN_FRONTEND=noninteractive apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
