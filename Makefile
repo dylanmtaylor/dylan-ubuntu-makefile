@@ -158,7 +158,7 @@ darktable:
 
 networking:
 	echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections # Remove prompt for wireshark
-	sudo apt -y install pidgin filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle transmission-gtk
+	sudo apt -y install filezilla vinagre remmina pepperflashplugin-nonfree hexchat wireshark-gtk zenmap samba ethtool sshuttle transmission-gtk
 
 harddisk:
 	sudo DEBIAN_FRONTEND=noninteractive apt -y install smartmontools nvme-cli smart-notifier #gsmartcontrol
