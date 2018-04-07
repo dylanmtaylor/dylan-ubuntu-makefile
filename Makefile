@@ -43,6 +43,7 @@ all:
 	make android
 	make dbeaver
 	make pts
+	make upgrade
 	# make fonts
 
 preparations:
@@ -95,12 +96,12 @@ gnome:
 	# Remove Ubuntu Dock
 	# sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
 	sudo apt -y purge gnome-shell-extension-ubuntu-dock
-	# Install and enable Arc/Papirus themes
+	# Install and enable Arc/Papirus Dark themes
 	sudo apt -y install gnome-themes-standard gtk2-engines-murrine gtk2-engines-pixbuf arc-theme libgtk-3-dev
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
 	sudo add-apt-repository -y ppa:papirus/papirus
 	sudo apt -y install papirus-icon-theme
-	gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+	gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -201,7 +202,7 @@ pandoc:
 	sudo rm -f /usr/share/applications/texdoctk.desktop
 
 system:
-	sudo apt -y install openjdk-9-jdk subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim powertop synaptic gdebi-core lm-sensors
+	sudo apt -y install openjdk-11-jdk subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack heaptrack-gui neovim powertop synaptic gdebi-core lm-sensors
 	# sudo powertop --auto-tune
 	sudo apt-add-repository -y ppa:teejee2008/ppa
 	sudo apt -y install ukuu
