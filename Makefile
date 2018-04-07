@@ -95,6 +95,12 @@ gnome:
 	# Remove Ubuntu Dock
 	# sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
 	sudo apt -y purge gnome-shell-extension-ubuntu-dock
+	# Install and enable Arc/Papirus themes
+	sudo apt -y install gnome-themes-standard gtk2-engines-murrine gtk2-engines-pixbuf arc-theme libgtk-3-dev
+	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
+	sudo add-apt-repository -y ppa:papirus/papirus
+	sudo apt -y install papirus-icon-theme
+	gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
