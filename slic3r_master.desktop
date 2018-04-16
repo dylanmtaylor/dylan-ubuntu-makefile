@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Name=Slic3r
-Icon=/opt/Slic3r/var/Slic3r.png
+Icon=slic3r
 Exec=bash -c 'cd /opt/Slic3r && /opt/Slic3r/Slic3r --gui %F'
 Keywords=perl;slice;3D;printer;convert;gcode;stl;obj;amf;
 StartupNotify=false
