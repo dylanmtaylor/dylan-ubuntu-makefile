@@ -225,7 +225,10 @@ ansible:
 	sudo apt -y install ansible
 
 docker:
-	sudo snap install docker
+	sudo snap remove docker
+	sudo apt -y install docker-compose docker
+	sudo usermod -aG docker ${USER}
+	sudo systemctl enable docker
 
 filesystem:
 	sudo apt -y install cryptsetup libblockdev-crypto2 exfat-fuse exfat-utils e2fsprogs mtools dosfstools hfsutils hfsprogs jfsutils util-linux lvm2 nilfs-tools ntfs-3g reiser4progs reiserfsprogs xfsprogs attr quota f2fs-tools sshfs go-mtpfs jmtpfs
