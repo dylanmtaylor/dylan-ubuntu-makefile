@@ -222,6 +222,7 @@ virtualbox:
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
 
 ansible:
+	sudo add-apt-repository -y ppa:ansible/ansible
 	sudo apt -y install ansible
 
 docker:
