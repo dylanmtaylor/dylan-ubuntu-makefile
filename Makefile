@@ -13,6 +13,7 @@ all:
 	make upgrade
 	make gnome
 	make python
+	make ruby
 	make atom
 	make vscode
 	make graphics darktable
@@ -161,7 +162,7 @@ cad:
 	mkdir -p $$HOME/.Slic3r/
 	rm -rf Slic3r-settings
 	git clone https://github.com/prusa3d/Slic3r-settings.git
-	rsync -avzh Slic3r-settings/Slic3r\ settings\ MK2S\ MK2MM\ and\ MK3/ $$HOME/.Slic3r/
+	rsync -avzh Slic3r-settings/old/Slic3r\ settings\ MK2S\ MK2MM\ and\ MK3/ $$HOME/.Slic3r/
 
 darktable:
 	sudo apt -y install darktable
