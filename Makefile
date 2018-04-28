@@ -78,14 +78,14 @@ fonts:
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install vanilla-gnome-default-settings || true
+	sudo apt -y install gnome-themes-standard linux-signed-image-generic ubuntu-gnome-wallpapers ubuntu-gnome-wallpapers-yakkety || true
 	make update
 	make upgrade
 	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-games gnome-shell-extensions chrome-gnome-shell evolution cheese rhythmbox shotwell simple-scan gnome-characters gnome-logs
 	sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css
 	# Remove the GNOME snaps
-	snap remove gnome-logs
-	snap remove gnome-characters
+	sudo snap remove gnome-logs
+	sudo snap remove gnome-characters
 	# Caffeine shell extenstion
 	rm -rf gnome-shell-extension-caffeine
 	git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
@@ -145,7 +145,7 @@ graphics:
 	sudo add-apt-repository -y ppa:inkscape.dev/stable
 	sudo apt -y install inkscape
   # Install additional graphics packages
-	sudo apt -y install graphviz dia libav-tools jpegoptim mesa-utils
+	sudo apt -y install graphviz dia ffmpeg jpegoptim mesa-utils
 
 obs:
 	sudo apt -y install obs-studio
