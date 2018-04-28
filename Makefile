@@ -211,10 +211,10 @@ pandoc:
 	sudo rm -f /usr/share/applications/texdoctk.desktop
 
 system:
-	sudo apt -y install openjdk-11-jdk subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress gksu ntp heaptrack neovim powertop synaptic gdebi-core lm-sensors npm golang-go
+	sudo apt -y install openjdk-11-jdk subversion rabbitvcs-nautilus git git-gui curl vim network-manager-openvpn gparted gnome-disk-utility usb-creator-gtk traceroute cloc whois mssh inotify-tools openssh-server sqlite3 etckeeper stress ntp heaptrack neovim powertop synaptic gdebi-core lm-sensors npm golang-go
 	# sudo powertop --auto-tune
 	sudo apt-add-repository -y ppa:teejee2008/ppa
-	sudo apt -y install ukuu
+	#sudo apt -y install ukuu
 
 virtualbox:
 	# Just in case I want to install the latest version later on. We use the one in Ubuntu's repo for this.
