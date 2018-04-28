@@ -33,7 +33,7 @@ all:
 	make libreoffice_full
 	make simplenote
 	make scribus
-	make unetbootin
+	# make unetbootin
 	make mono
 	make monodevelop
 	make dosbox wine
