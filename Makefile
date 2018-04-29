@@ -4,7 +4,7 @@
 # Inspired by and very loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to without restriction. If you do I'd appreciate it if you let me know.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking filezilla harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android dbeaver
+.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking filezilla harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android jetbrains dbeaver
 
 all:
 	@echo "Installation of ALL targets"
@@ -42,6 +42,7 @@ all:
 	make googleplaymusic #spotify
 	make skype telegram discord
 	make android
+	make jetbrains
 	make dbeaver
 	make pts
 	make upgrade
@@ -354,6 +355,11 @@ android:
 	sudo adduser $$USER kvm
 	if sudo flatpak list | grep com.google.AndroidStudio/x86_64/stable; then echo Android Studio is already installed; else sudo flatpak -y install flathub com.google.AndroidStudio; fi
 	sudo chown -R $$USER:$$USER /home/$$USER # Fix permissions of /home
+
+jetbrains:
+	curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
+	echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+	make update
 
 dbeaver:
 	wget -N https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
