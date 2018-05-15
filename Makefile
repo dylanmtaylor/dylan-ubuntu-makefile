@@ -4,14 +4,14 @@
 # Inspired by and very loosely based on https://gist.github.com/h4cc/c54d3944cb555f32ffdf25a5fa1f2602
 # Feel free to use this if you would like to without restriction. If you do I'd appreciate it if you let me know.
 
-.PHONY:	all preparations libs update upgrade fonts gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking filezilla harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android jetbrains dbeaver
+.PHONY:	all preparations libs update upgrade fonts papirus gnome atom vscode python ruby vagrant graphics obs cad 3dprint darktable networking filezilla harddisk firefox-next google_chrome archives media pandoc system virtualbox ansible docker filesystem tools teamviewer unetbootin steam discord libreoffice_full simplenote scribus mono monodevelop dosbox wine unity3d unifi lastpass kdenlive gitkraken googleplaymusic spotify skype telegram slic3r_master driverppa pts android jetbrains dbeaver
 
 all:
 	@echo "Installation of ALL targets"
 	make preparations libs
 	make update
 	make upgrade
-	make gnome
+	make papirus gnome
 	make python
 	make ruby
 	make atom
@@ -76,6 +76,11 @@ fonts:
 	curl https://raw.githubusercontent.com/dylanmtaylor/Web-Font-Load/master/install.sh | sudo bash
 	# Refresh font cache
 	fc-cache -v
+	
+papirus:
+	sudo add-apt-repository -y ppa:papirus/papirus
+	sudo apt -y install papirus-icon-theme libreoffice-style-papirus
+	gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
@@ -104,9 +109,6 @@ gnome:
 	# Install and enable Arc/Papirus Dark themes
 	sudo apt -y install gnome-themes-standard gtk2-engines-murrine gtk2-engines-pixbuf arc-theme libgtk-3-dev
 	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-	sudo add-apt-repository -y ppa:papirus/papirus
-	sudo apt -y install papirus-icon-theme libreoffice-style-papirus
-	gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
