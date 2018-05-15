@@ -87,7 +87,7 @@ plasma:
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
-	sudo apt -y install gnome-themes-standard linux-signed-image-generic ubuntu-gnome-wallpapers ubuntu-gnome-wallpapers-yakkety || true
+	sudo apt -y install gnome-themes-standard vanilla-gnome-default-settings || true
 	make update
 	make upgrade
 	sudo apt -y install gnome-session gnome-weather gnome-tweak-tool gnome-maps gnome-games gnome-shell-extensions chrome-gnome-shell evolution cheese rhythmbox shotwell simple-scan gnome-characters gnome-logs
