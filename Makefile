@@ -83,7 +83,7 @@ papirus:
 	gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 plasma:
-	sudo apt -y install plasma-desktop dolphin konsole
+	sudo apt -y install plasma-desktop dolphin konsole ark
 
 gnome:
 	# Default GDM is pretty ugly. This forces upstream GDM theming.
