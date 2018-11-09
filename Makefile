@@ -109,9 +109,9 @@ gnome:
 	# Remove Ubuntu Dock
 	# sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com || true
 	sudo apt -y purge gnome-shell-extension-ubuntu-dock
-	# Install and enable Arc/Papirus Dark themes
-	sudo apt -y install gnome-themes-standard gtk2-engines-murrine gtk2-engines-pixbuf arc-theme libgtk-3-dev
-	gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
+	# Install and enable Yaru/Arc/Papirus Dark themes
+	sudo apt -y install gnome-themes-standard gtk2-engines-murrine gtk2-engines-pixbuf arc-theme libgtk-3-dev yaru-theme\*
+	gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-Dark'
 
 atom:
 	curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
@@ -224,7 +224,7 @@ system:
 
 virtualbox:
 	# Just in case I want to install the latest version later on. We use the one in Ubuntu's repo for this.
-	echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+	echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian cosmic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 	wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 	sudo apt -y install virtualbox-modules virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox virtualbox-guest-dkms
 
@@ -297,7 +297,7 @@ wine:
 	wget -nc https://dl.winehq.org/wine-builds/Release.key -q -O winerelease.key
 	sudo dpkg --add-architecture i386
 	sudo apt-key add winerelease.key
-	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ artful main" #hack until bionic packages are released
+	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main"
 	sudo apt -y install --install-recommends winehq-devel fonts-wine
 
 unity3d:
