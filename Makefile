@@ -297,7 +297,7 @@ wine:
 	wget -nc https://dl.winehq.org/wine-builds/Release.key -q -O winerelease.key
 	sudo dpkg --add-architecture i386
 	sudo apt-key add winerelease.key
-	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ artful main" #hack until bionic packages are released
+	sudo apt-add-repository -s "deb https://dl.winehq.org/wine-builds/ubuntu/ biobic main"
 	sudo apt -y install --install-recommends winehq-devel fonts-wine
 
 unity3d:
